@@ -9,7 +9,7 @@ O conjunto de treinamento **não é versionado aqui**, por tamanho e por licenç
 própria. Foram utilizadas gravações do autor para as duas palavras-chave, além de
 amostras de ruído de fundo e de palavras não pertencentes ao vocabulário.
 
-- Projeto no Edge Impulse: `TCC_hello_bye`, id 1123849
+- Projeto no Edge Impulse: [`TCC_hello_bye`](https://studio.edgeimpulse.com/studio/1123849), id 1123849
 - Classes: `bye`, `hello`, `noise`, `unknown`
 - Bloco de processamento: MFCC — janela de 1000 ms, passo de 500 ms, 16 kHz
 - Exportação: quantização inteira de 8 bits, com compilador de grafo ativo
