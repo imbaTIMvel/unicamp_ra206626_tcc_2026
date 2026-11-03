@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "Prós e contras de soluções comerciais para Sistemas Embarcados com Edge AI"
+message: "Se utilizar este material, por favor cite o trabalho."
+type: software
+authors:
+  - family-names: "Altoé Bento da Silva"
+    given-names: "Timóteo"
+    affiliation: "Universidade Estadual de Campinas"
+repository-code: "https://github.com/imbaTIMvel/unicamp_ra206626_tcc_2026"
+year: 2026
+license: MIT

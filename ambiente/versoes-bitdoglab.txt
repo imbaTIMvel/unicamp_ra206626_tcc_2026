@@ -1,0 +1,4 @@
+079c6f39
+arm-none-eabi-gcc (15:10.3-2021.07-4) 10.3.1 20210621 (release)
+cmake version 3.22.1
+Description:	Ubuntu 22.04.5 LTS

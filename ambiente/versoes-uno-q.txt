@@ -1,0 +1,41 @@
+Linux tcc 7.0.0-g122c2c22d838 #1 SMP PREEMPT Fri May  8 12:10:20 UTC 2026 aarch64 GNU/Linux
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.7
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+4
+               total        used        free      shared  buff/cache   available
+Mem:           3.6Gi       634Mi       2.2Gi        40Mi       999Mi       3.0Gi
+Swap:          1.8Gi          0B       1.8Gi
+Package            Version
+------------------ ---------
+apt-listchanges    4.8
+certifi            2025.1.31
+chardet            5.2.0
+charset-normalizer 3.4.2
+crit               4.1.1
+edge_impulse_linux 1.2.2
+idna               3.10
+numpy              2.2.4
+opencv             4.10.0
+packaging          25.0
+pip                25.1.1
+protobuf           4.21.12
+PyAudio            0.2.14
+pycairo            1.27.0
+pycriu             4.1.1
+PyGObject          3.50.0
+python-apt         3.0.0
+python-debian      1.0.1
+python-debianbts   4.1.1
+reportbug          13.2.0
+requests           2.32.3
+six                1.17.0
+urllib3            2.3.0
+wheel              0.46.1

@@ -1,0 +1,10 @@
+build/
+*.uf2
+*.elf
+edge-impulse-sdk/
+__pycache__/
+*.pyc
+.vscode/
+.DS_Store
+*.tar.gz
+dataset/sc/

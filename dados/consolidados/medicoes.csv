@@ -1,0 +1,96 @@
+experimento,plataforma,dominio,metrica,valor,unidade,natureza,condicoes,n_amostras
+E1,BitDogLab,MCU,latencia_mediana,2702.0,ns,medido,joystick GP26 -> PWM GP13; leitura+atuacao,100
+E1,BitDogLab,MCU,latencia_minima,2697,ns,medido,idem,100
+E1,BitDogLab,MCU,latencia_maxima,2713,ns,medido,idem,100
+E1,BitDogLab,MCU,desvio_padrao,2.84,ns,medido,idem,100
+E1,UNO Q,MCU,latencia_mediana,150010.0,ns,medido,LDR em A0 -> PWM D9; leitura+atuacao; 12 bits,50
+E1,UNO Q,MCU,latencia_minima,149964,ns,medido,idem,50
+E1,UNO Q,MCU,latencia_maxima,150064,ns,medido,idem,50
+E1,Raspberry Pi 4,CPU,latencia_mediana,23225.0,ns,medido,"AD5592R, SPI 1 MHz; somente leitura",20
+E1,Raspberry Pi 4,CPU,latencia_mediana,7357.5,ns,medido,"AD5592R, SPI 10 MHz; somente leitura",10
+E1,Raspberry Pi 4,CPU,latencia_minima,7339,ns,medido,idem,10
+E1,Raspberry Pi 4,CPU,latencia_maxima,7431,ns,medido,idem,10
+E1,BitDogLab,MCU,tempo_setup,564.7,s,medido,toolchain previamente instalada; so criacao do projeto,1
+E1,UNO Q,MCU,tempo_setup,2187.8,s,medido,inclui atualizacao obrigatoria de firmware,1
+E1,UNO Q,MCU,tempo_setup_sem_atualizacao,1269.0,s,medido,descontados 919 s de atualizacao,1
+E1,UNO Q,MCU,tempo_atualizacao_firmware,919.0,s,medido,obrigatoria no primeiro uso,1
+E1,BitDogLab,MCU,linhas_de_codigo,16,linhas,contagem,versao minima funcional; inclui #include,
+E1,BitDogLab,MCU,linhas_arquivo_build,9,linhas,contagem,CMakeLists.txt,
+E1,UNO Q,MCU,linhas_de_codigo,8,linhas,contagem,versao minima funcional,
+E1,Raspberry Pi 4,CPU,linhas_de_codigo,11,linhas,contagem,somente leitura; 5 linhas sao config. do conversor,
+E1,BitDogLab,MCU,nivel_abstracao,1,escala 1-3,classificacao,configuracao explicita de periferico,
+E1,UNO Q,MCU,nivel_abstracao,3,escala 1-3,classificacao,funcao de alto nivel que oculta o periferico,
+E1,Raspberry Pi 4,CPU,nivel_abstracao,1,escala 1-3,classificacao,acesso por registrador do conversor externo,
+E1,UNO Q,MCU,resolucao_adc,12,bits,medido,2 bits descartados por padrao pelo nucleo Arduino,
+E2,BitDogLab,MCU,latencia_mediana,241650.0,ns,medido,I2C0 a 400 kHz; bloco de 6 bytes,10
+E2,BitDogLab,MCU,latencia_minima,241646,ns,medido,idem,10
+E2,BitDogLab,MCU,latencia_maxima,241671,ns,medido,idem,10
+E2,UNO Q,MCU,latencia_mediana,210469.5,ns,medido,Wire a 400 kHz; bloco de 6 bytes,10
+E2,UNO Q,MCU,latencia_minima,210188,ns,medido,idem,10
+E2,UNO Q,MCU,latencia_maxima,210585,ns,medido,idem,10
+E2,Raspberry Pi 4,CPU,latencia_mediana,242093.0,ns,medido,smbus2 a 400 kHz; bloco de 6 bytes,10
+E2,Raspberry Pi 4,CPU,latencia_minima,241482,ns,medido,idem,10
+E2,Raspberry Pi 4,CPU,latencia_maxima,242418,ns,medido,idem,10
+E2,Raspberry Pi 4,CPU,latencia_mediana,886676.5,ns,medido,smbus2 a 100 kHz (padrao); bloco de 6 bytes,10
+E2,Raspberry Pi 4,CPU,latencia_verificacao_pontual,883105,ns,medido,smbus2 a 100 kHz; 1000 iter em execucao unica,1
+E2,BitDogLab,MCU,tempo_setup,504.3,s,medido,projeto criado do zero,1
+E2,UNO Q,MCU,tempo_setup,868.1,s,medido,inclui delay(5000) para abrir o monitor,1
+E2,BitDogLab,MCU,who_am_i,112,registrador,medido,MPU-6500 identificado por registrador 0x75,
+E2,UNO Q,MCU,who_am_i,104,registrador,medido,MPU-6050 identificado por registrador 0x75,
+E2,Raspberry Pi 4,CPU,who_am_i,104,registrador,medido,MPU-6050 identificado por registrador 0x75,
+E3,BitDogLab,MCU,desvio_mediana_ocioso,0,us,medido,abaixo da resolucao de 1 us do time_us_32,500
+E3,BitDogLab,MCU,desvio_p95_ocioso,0,us,medido,abaixo da resolucao de 1 us do time_us_32,500
+E3,BitDogLab,MCU,desvio_maximo_ocioso,0,us,medido,abaixo da resolucao de 1 us do time_us_32,500
+E3,BitDogLab,MCU,desvio_mediana_carga_nucleo_separado,0,us,medido,core1 em carga; abaixo da resolucao,500
+E3,BitDogLab,MCU,desvio_p95_carga_nucleo_separado,0,us,medido,core1 em carga; abaixo da resolucao,500
+E3,BitDogLab,MCU,desvio_maximo_carga_nucleo_separado,0,us,medido,core1 em carga; abaixo da resolucao,500
+E3,BitDogLab,MCU,desvio_mediana_carga_mesmo_nucleo,125,us,medido,bloco nao interrompivel de ~250 us,500
+E3,BitDogLab,MCU,desvio_p95_carga_mesmo_nucleo,238,us,medido,bloco nao interrompivel de ~250 us,500
+E3,BitDogLab,MCU,desvio_maximo_carga_mesmo_nucleo,250,us,medido,bloco nao interrompivel de ~250 us,500
+E3,UNO Q,MCU,desvio_mediana_ocioso,2,us,medido,Zephyr; tick do escalonador,500
+E3,UNO Q,MCU,desvio_p95_ocioso,26,us,medido,Zephyr; tick do escalonador,500
+E3,UNO Q,MCU,desvio_maximo_ocioso,26,us,medido,Zephyr; tick do escalonador,500
+E3,UNO Q,MCU,desvio_mediana_carga_mesmo_nucleo,40,us,medido,Zephyr; sem acesso a threads pela camada Arduino,500
+E3,UNO Q,MCU,desvio_p95_carga_mesmo_nucleo,98,us,medido,Zephyr; sem acesso a threads pela camada Arduino,500
+E3,UNO Q,MCU,desvio_maximo_carga_mesmo_nucleo,137,us,medido,Zephyr; sem acesso a threads pela camada Arduino,500
+E3,Raspberry Pi 4,CPU,desvio_mediana_ocioso,0.4,us,medido,"governador performance; 1,8 GHz",500
+E3,Raspberry Pi 4,CPU,desvio_p95_ocioso,0.5,us,medido,"governador performance; 1,8 GHz",500
+E3,Raspberry Pi 4,CPU,desvio_maximo_ocioso,1.3,us,medido,"governador performance; 1,8 GHz",500
+E3,Raspberry Pi 4,CPU,desvio_mediana_carga,6106.9,us,medido,stress-ng --cpu 16 em 4 nucleos,500
+E3,Raspberry Pi 4,CPU,desvio_p95_carga,15956.7,us,medido,stress-ng --cpu 16 em 4 nucleos,500
+E3,Raspberry Pi 4,CPU,desvio_maximo_carga,19950.3,us,medido,stress-ng --cpu 16 em 4 nucleos,500
+E3,Raspberry Pi 4,CPU,periodo_da_tarefa,10000,us,parametro,tarefa periodica de 10 ms,
+E4,BitDogLab,MCU,latencia_total_mediana,930.77,ms,medido,"int8, EON, sem instrumentacao",10
+E4,BitDogLab,MCU,latencia_total_mediana,934.98,ms,medido,"int8, EON, com instrumentacao por mallinfo",10
+E4,BitDogLab,MCU,latencia_total_mediana,934.98,ms,medido,"int8, EON, EIDSP_QUANTIZE_FILTERBANK=1 (sem efeito)",10
+E4,BitDogLab,MCU,latencia_dsp,920,ms,medido,MFCC; reportado pelo runtime,10
+E4,BitDogLab,MCU,latencia_classificador,11,ms,medido,int8; reportado pelo runtime,10
+E4,BitDogLab,MCU,latencia_total_mediana,967.59,ms,medido,"float32, com instrumentacao",10
+E4,BitDogLab,MCU,latencia_dsp,926,ms,medido,float32,10
+E4,BitDogLab,MCU,latencia_classificador,41,ms,medido,float32,10
+E4,BitDogLab,MCU,heap_pico,18956,bytes,medido,mallinfo().uordblks; identico em int8 e float32,14
+E4,BitDogLab,MCU,ram_estatica_bss,4128,bytes,medido,build sem instrumentacao,1
+E4,BitDogLab,MCU,ram_estatica_bss,4132,bytes,medido,build com instrumentacao,1
+E4,BitDogLab,MCU,memoria_programa,235644,bytes,medido,"int8, sem instrumentacao; inclui 128000 B de audio",1
+E4,BitDogLab,MCU,memoria_programa,246328,bytes,medido,"int8, com instrumentacao",1
+E4,BitDogLab,MCU,memoria_programa,241784,bytes,medido,"float32, com instrumentacao",1
+E4,BitDogLab,MCU,tamanho_modelo,6504,bytes,medido,arquivo .tflite int8,1
+E4,BitDogLab,MCU,tensor_arena,2176,bytes,medido,kTensorArenaSize do grafo EON compilado,1
+E4,BitDogLab,MCU,tensor_arena,6265,bytes,medido,valor dos metadados do deployment,1
+E4,Raspberry Pi 4,CPU,latencia_parede_mediana,12925.3,us,medido,runtime .eim AARCH64; inclui IPC e serializacao,10
+E4,Raspberry Pi 4,CPU,latencia_parede_mediana,13090.9,us,medido,runtime .eim AARCH64; inclui IPC e serializacao,10
+E4,UNO Q,CPU,latencia_parede_mediana,9570.4,us,medido,runtime .eim AARCH64; inclui IPC e serializacao,10
+E4,Raspberry Pi 4,CPU,latencia_dsp,2,ms,medido,reportado pelo runtime,20
+E4,UNO Q,CPU,latencia_dsp,3,ms,medido,dominio Linux; reportado pelo runtime,10
+E4,Raspberry Pi 4,CPU,memoria_residente_pico,62340,kB,medido,processo Python; exclui o processo do .eim,1
+E4,BitDogLab,MCU,latencia_total,157,ms,estimado,Cortex-M4F 80 MHz; estimador da ferramenta,
+E4,BitDogLab,MCU,latencia_dsp,154,ms,estimado,Cortex-M4F 80 MHz,
+E4,BitDogLab,MCU,latencia_classificador,3,ms,estimado,Cortex-M4F 80 MHz; int8,
+E4,BitDogLab,MCU,latencia_classificador,37,ms,estimado,Cortex-M4F 80 MHz; float32,
+E4,BitDogLab,MCU,ram_pico,15.4,kB,estimado,Cortex-M4F 80 MHz,
+E4,BitDogLab,MCU,memoria_programa,30.8,kB,estimado,Cortex-M4F 80 MHz; int8,
+E4,BitDogLab,MCU,memoria_programa,27.9,kB,estimado,Cortex-M4F 80 MHz; float32,
+E4,todas,,acuracia_conjunto_teste,88.64,%,medido,Model testing do Edge Impulse; conjunto reduzido,
+E4,BitDogLab,,paridade_classes_corretas,4,de 4,medido,vetores identicos ate a 5a casa decimal,4
+E4,UNO Q,,paridade_classes_corretas,4,de 4,medido,vetores identicos ate a 5a casa decimal,4
+E4,Raspberry Pi 4,,paridade_classes_corretas,4,de 4,medido,vetores identicos ate a 5a casa decimal,4
