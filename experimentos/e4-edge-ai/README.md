@@ -6,7 +6,7 @@ Implantação do mesmo modelo quantizado de detecção de palavra-chave em três
 
 Valores estimados pela ferramenta (Edge Impulse), para um núcleo Cortex-M4F @ 80 MHz.
 
-| Modelo | Extração de características | Inferência | Tempo total | Memória de execução | Memória de programa (inferência) | Precisão |
+| Modelo | Extração de características (MFCC) | Inferência | Tempo total | Memória de execução (MFCC + Infer.) | Memória de programa (inferência) | Precisão |
 | --- | --- | --- | --- | --- | --- | --- |
 | Quantizado (int8) | 154 ms | 3 ms | 157 ms | 15,4 kB + 3,8 kB | 30,8 kB | 88,64% |
 | Não otimizado (float32) | 154 ms | 37 ms | 191 ms | 15,4 kB + 7 kB | 27,9 kB | 88,64% |
