@@ -1,0 +1,42 @@
+# E4 — Arduino UNO Q, dominio de aplicacao
+# Debian 13 trixie, aarch64, 4 nucleos, 3,6 GiB; mesmo .eim usado na Raspberry Pi.
+
+projeto: TCC_hello_bye | id: 1123849 | deploy: 4
+=== PARIDADE ===
+bye bye=0.99609,hello=0.00000,noise=0.00000,unknown=0.00000 dsp_ms=4 classif_ms=0
+hello bye=0.00000,hello=0.71094,noise=0.08203,unknown=0.20703 dsp_ms=3 classif_ms=0
+noise bye=0.00000,hello=0.00000,noise=0.99609,unknown=0.00000 dsp_ms=3 classif_ms=0
+unknown bye=0.00000,hello=0.02734,noise=0.00391,unknown=0.96875 dsp_ms=3 classif_ms=0
+=== LATENCIA: 11 execucoes, descartando a primeira ===
+descartada: 8831.4 us
+1,parede_us=9663.2,dsp_ms=3,classif_ms=0
+2,parede_us=9442.3,dsp_ms=3,classif_ms=0
+3,parede_us=9547.6,dsp_ms=3,classif_ms=0
+4,parede_us=9608.5,dsp_ms=3,classif_ms=0
+5,parede_us=9439.6,dsp_ms=3,classif_ms=0
+6,parede_us=9593.2,dsp_ms=3,classif_ms=0
+7,parede_us=9541.0,dsp_ms=3,classif_ms=0
+8,parede_us=9500.7,dsp_ms=3,classif_ms=0
+9,parede_us=9606.6,dsp_ms=3,classif_ms=0
+10,parede_us=9906.0,dsp_ms=3,classif_ms=0
+parede: mediana=9570.4 us  min=9439.6  max=9906.0
+# Vetores de probabilidade identicos aos dos outros dois alvos, ate a 5a casa.
+
+### Atrito de instalacao das dependencias
+$ sudo apt install -y portaudio19-dev
+Solving dependencies... Error!
+Unsatisfied dependencies:
+ libasound2-dev : Depends: libasound2t64 (= 1.2.14-1+deb13u1)
+                  but 1.2.16.1-1~bpo13+1 is to be installed
+# A imagem do fabricante combina pacotes de repositorio suplementar com a base
+# estavel. Mesma distribuicao e mesmo pacote instalaram sem atrito na
+# Raspberry Pi 4. Contornado forcando libasound2-dev=1.2.16.1-1~bpo13+1.
+
+### Estado do ambiente
+$ uname -m
+aarch64
+$ nproc
+4
+$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           3.6Gi       851Mi       236Mi        38Mi       2.8Gi       2.8Gi

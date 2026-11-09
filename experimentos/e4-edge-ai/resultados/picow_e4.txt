@@ -1,0 +1,101 @@
+# E4 — BitDogLab (Pico W), pipeline de deteccao de palavra-chave
+# Entrada fixa: quatro trechos embutidos no firmware, 16 kHz, 16.000 amostras.
+
+### Execucao 1 — int8, EON, SEM instrumentacao de memoria
+# Valores de latencia reportados no trabalho.
+=== PARIDADE: uma execucao por classe ===
+bye,total_us=930224,dsp_ms=919,classif_ms=11,bye=0.99609,hello=0.00000,noise=0.00000,unknown=0.00000
+hello,total_us=930836,dsp_ms=920,classif_ms=11,bye=0.00000,hello=0.71094,noise=0.08203,unknown=0.20703
+noise,total_us=931564,dsp_ms=921,classif_ms=11,bye=0.00000,hello=0.00000,noise=0.99609,unknown=0.00000
+unknown,total_us=931381,dsp_ms=921,classif_ms=11,bye=0.00000,hello=0.02734,noise=0.00391,unknown=0.96875
+=== LATENCIA: 10 execucoes sobre sample_hello ===
+hello,total_us=930782,dsp_ms=920,classif_ms=11
+hello,total_us=930758,dsp_ms=920,classif_ms=11
+hello,total_us=930770,dsp_ms=920,classif_ms=11
+hello,total_us=930763,dsp_ms=920,classif_ms=11
+hello,total_us=930836,dsp_ms=920,classif_ms=11
+hello,total_us=930855,dsp_ms=920,classif_ms=11
+hello,total_us=930776,dsp_ms=920,classif_ms=11
+hello,total_us=930739,dsp_ms=920,classif_ms=11
+hello,total_us=930754,dsp_ms=920,classif_ms=11
+hello,total_us=930746,dsp_ms=920,classif_ms=11
+=== FIM ===
+# Mediana 930,77 ms; faixa de 116 us (0,012%).
+# Vetores de probabilidade identicos nas 14 execucoes.
+
+### Execucao 2 — int8, contador MANUAL de alocacoes (medicao de memoria INVALIDA)
+hello,total_us=931912,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931772,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931864,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931871,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931873,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931851,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931942,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931823,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931800,dsp_ms=921,classif_ms=11,heap_bytes=315553
+hello,total_us=931865,dsp_ms=921,classif_ms=11,heap_bytes=315553
+# 315.553 bytes excedem os 264 kB de SRAM do dispositivo: o contador somava a
+# mesma memoria reaproveitada a cada quadro do pre-processamento.
+# Os TEMPOS desta execucao sao validos; a medicao de memoria nao e.
+
+### Execucao 3 — int8, instrumentacao por mallinfo().uordblks
+hello,total_us=934977,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934993,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934942,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=935020,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934985,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=935044,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934985,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934982,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934936,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934983,dsp_ms=924,classif_ms=11,heap_bytes=18956
+# Heap de pico 18.956 bytes, identico nas quatro classes e nas dez execucoes.
+
+### Execucao 4 — int8 com EIDSP_QUANTIZE_FILTERBANK=1
+hello,total_us=934956,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934915,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934994,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934988,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=935022,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934974,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934935,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=935023,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=935014,dsp_ms=924,classif_ms=11,heap_bytes=18956
+hello,total_us=934972,dsp_ms=924,classif_ms=11,heap_bytes=18956
+# Latencia, heap e tamanho do binario identicos a execucao 3: a opcao e inerte
+# neste impulse. Confirma que os 920 ms do pre-processamento decorrem da
+# arquitetura, e nao da configuracao de compilacao adotada.
+
+### Execucao 5 — float32, com instrumentacao
+=== PARIDADE: uma execucao por classe ===
+bye,total_us=967329,dsp_ms=926,classif_ms=41,bye=0.99917,hello=0.00002,noise=0.00000,unknown=0.00081
+hello,total_us=967645,dsp_ms=926,classif_ms=41,bye=0.00007,hello=0.69505,noise=0.08140,unknown=0.22348
+noise,total_us=968366,dsp_ms=927,classif_ms=41,bye=0.00000,hello=0.00000,noise=0.99880,unknown=0.00120
+unknown,total_us=968222,dsp_ms=927,classif_ms=41,bye=0.00016,hello=0.03005,noise=0.00488,unknown=0.96491
+=== LATENCIA: 10 execucoes sobre sample_hello ===
+hello,total_us=967666,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967572,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967571,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967640,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967624,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967577,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967590,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967593,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967522,dsp_ms=926,classif_ms=41,heap_bytes=18956
+hello,total_us=967711,dsp_ms=926,classif_ms=41,heap_bytes=18956
+=== FIM ===
+# Classificador de 11 ms para 41 ms: fator de 3,7.
+# Pre-processamento praticamente inalterado, por permanecer em ponto flutuante.
+# Saidas em valores continuos, ao contrario dos multiplos de 1/256 da versao int8.
+
+### Tamanho dos binarios
+$ arm-none-eabi-size e4_kws.elf        # int8, sem instrumentacao
+   text    data     bss     dec     hex
+ 235644       0    4128  239772   3a89c
+
+$ arm-none-eabi-size e4_kws.elf        # int8, com instrumentacao
+ 246328       0    4132  250460   3d25c
+
+$ arm-none-eabi-size e4_kws.elf        # float32, com instrumentacao
+ 241784       0    4132  245916   3c09c
+# Os 128.000 bytes das quatro amostras de audio estao incluidos em text.
