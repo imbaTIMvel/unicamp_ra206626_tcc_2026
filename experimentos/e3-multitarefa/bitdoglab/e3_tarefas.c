@@ -3,6 +3,9 @@
 #include "pico/stdlib.h"
 #include "pico/stdio_usb.h"
 #include "pico/multicore.h"
+#include "hardware/clocks.h"
+
+printf("clk_sys = %u Hz\n", clock_get_hz(clk_sys));
 
 #define LED 13
 #define PERIODO_US 10000
