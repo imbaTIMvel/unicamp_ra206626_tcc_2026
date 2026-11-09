@@ -5,8 +5,6 @@
 #include "pico/multicore.h"
 #include "hardware/clocks.h"
 
-printf("clk_sys = %u Hz\n", clock_get_hz(clk_sys));
-
 #define LED 13
 #define PERIODO_US 10000
 #define N 500
@@ -52,6 +50,7 @@ int main(void) {
     while (!stdio_usb_connected()) sleep_ms(100);
     sleep_ms(500);
 
+    printf("clk_sys = %u Hz\n", clock_get_hz(clk_sys));
     gpio_init(LED);
     gpio_set_dir(LED, GPIO_OUT);
     multicore_launch_core1(core1_carga);
