@@ -1,0 +1,11 @@
+# E3 — BitDogLab (Pico W), tarefa periodica de 10 ms, 500 repeticoes
+# Carga concorrente lancada no segundo nucleo por multicore_launch_core1().
+=== A: ocioso ===
+ocioso: mediana=0 us  p95=0 us  max=0 us
+=== B: carga no SEGUNDO nucleo ===
+carga_core1: mediana=0 us  p95=0 us  max=0 us
+=== C: carga no MESMO nucleo ===
+carga_core0: mediana=125 us  p95=238 us  max=250 us
+=== FIM ===
+# Tempo da sessao: 00:02:30.166
+# Os valores nulos situam-se abaixo da resolucao de 1 us do time_us_32().

@@ -1,0 +1,12 @@
+# E3 — Arduino UNO Q, tarefa periodica de 10 ms, 500 repeticoes
+=== A: ocioso ===
+ocioso: mediana=2 us  p95=26 us  max=26
+=== C: carga no MESMO nucleo ===
+carga_core0: mediana=40 us  p95=98 us  max=137
+=== B: carga em nucleo separado — NAO APLICAVEL ===
+o nucleo Arduino nao expoe criacao de threads
+=== FIM ===
+# Tempo da sessao: 00:03:23.316
+# O registro de compilacao identifica a plataforma arduino:zephyr 1.0.0.
+# O Zephyr possui escalonador preemptivo e API de threads; a camada Arduino
+# nao as expoe, razao pela qual a condicao B nao pode ser reproduzida.
