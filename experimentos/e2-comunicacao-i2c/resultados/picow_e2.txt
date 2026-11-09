@@ -1,0 +1,36 @@
+# E2 — BitDogLab (Pico W), MPU no conector I2C0 (GP0/GP1), barramento a 400 kHz
+WHO_AM_I=0x70					# identifica a peca como MPU-6500
+=== FUNCIONAL: 20 leituras, mexa no modulo ===
+0,2816,11148,12184
+1,3564,1828,7300
+2,-256,20544,-4556
+3,5428,12920,6960
+4,16244,-4604,14100
+5,2156,-2256,16320
+6,-7292,5204,1044
+7,2076,10840,-9568
+8,3504,8772,16584
+9,5132,1920,12164
+10,-4032,-3816,16352
+11,-5056,7068,7644
+12,-2244,16864,-9992
+13,9240,-2296,11848
+14,6464,-18884,-340
+15,-1164,-12384,11196
+16,-8292,3712,10348
+17,2224,13380,-6212
+18,3980,-5216,13724
+19,1832,-18504,3520
+=== LATENCIA: 10 blocos de 1000 iteracoes ===
+0,bloco_us=241671,por_iter_ns=241671
+1,bloco_us=241651,por_iter_ns=241651
+2,bloco_us=241650,por_iter_ns=241650
+3,bloco_us=241646,por_iter_ns=241646
+4,bloco_us=241650,por_iter_ns=241650
+5,bloco_us=241657,por_iter_ns=241657
+6,bloco_us=241649,por_iter_ns=241649
+7,bloco_us=241646,por_iter_ns=241646
+8,bloco_us=241647,por_iter_ns=241647
+9,bloco_us=241653,por_iter_ns=241653
+=== FIM ===
+# Tempo ate o primeiro resultado correto: 00:08:24.314

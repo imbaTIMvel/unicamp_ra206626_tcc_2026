@@ -1,0 +1,47 @@
+# E2 — Arduino UNO Q, biblioteca Wire a 400 kHz
+
+### Varredura previa do barramento
+=== VARREDURA I2C ===
+Encontrado em 0x68
+Total encontrado: 1
+=== FIM ===
+
+### Medicao
+WHO_AM_I=0x68					# identifica a peca como MPU-6050
+=== FUNCIONAL: 20 leituras, mexa no modulo ===
+0,OK,-15888,-18480,1104
+1,OK,6352,-12588,-6340
+2,OK,-528,-18968,-14692
+3,OK,-13552,-16100,1080
+4,OK,-12176,-15516,-4252
+5,OK,-12,-13608,-16664
+6,OK,-2292,-19264,-4964
+7,OK,-16516,-12368,6028
+8,OK,2620,-7264,-96
+9,OK,-1020,-26756,-18256
+10,OK,-10032,-10448,3324
+11,OK,-16696,-20944,-9052
+12,OK,240,-15356,-15724
+13,OK,-652,-13316,1132
+14,OK,-18952,-7420,5608
+15,OK,3896,-10600,-4784
+16,OK,-1824,-25648,-15408
+17,OK,-8320,-14044,5444
+18,OK,-17800,-24432,-5740
+19,OK,-1584,-15172,-14604
+=== LATENCIA: 10 blocos de 1000 iteracoes ===
+0,por_iter_ns=210284
+1,por_iter_ns=210585
+2,por_iter_ns=210520
+3,por_iter_ns=210188
+4,por_iter_ns=210306
+5,por_iter_ns=210469
+6,por_iter_ns=210507
+7,por_iter_ns=210233
+8,por_iter_ns=210470
+9,por_iter_ns=210507
+=== FIM ===
+# Tempo ate o primeiro resultado correto: 00:14:28.084
+# A coluna OK/FALHA foi acrescentada apos a deteccao de medicao invalida com
+# endTransmission(false): a condicao de reinicio nao produziu leitura valida
+# nesta plataforma, e todas as leituras retornavam -1.
