@@ -1,0 +1,54 @@
+# E4 — Raspberry Pi 4, runtime Edge Impulse para Linux (.eim AARCH64)
+# Governador em performance, 1,8 GHz, throttled=0x0
+
+### Execucao 1
+projeto: TCC_hello_bye | id: 1123849 | deploy: 4
+=== PARIDADE ===
+bye bye=0.99609,hello=0.00000,noise=0.00000,unknown=0.00000 dsp_ms=2 classif_ms=0
+hello bye=0.00000,hello=0.71094,noise=0.08203,unknown=0.20703 dsp_ms=2 classif_ms=0
+noise bye=0.00000,hello=0.00000,noise=0.99609,unknown=0.00000 dsp_ms=2 classif_ms=0
+unknown bye=0.00000,hello=0.02734,noise=0.00391,unknown=0.96875 dsp_ms=2 classif_ms=0
+=== LATENCIA: 11 execucoes, descartando a primeira ===
+descartada: 12790.8 us
+1,parede_us=14100.9,dsp_ms=2,classif_ms=0
+2,parede_us=13134.6,dsp_ms=2,classif_ms=0
+3,parede_us=12896.7,dsp_ms=2,classif_ms=0
+4,parede_us=12921.7,dsp_ms=2,classif_ms=0
+5,parede_us=12928.9,dsp_ms=2,classif_ms=0
+6,parede_us=12936.6,dsp_ms=2,classif_ms=0
+7,parede_us=12869.1,dsp_ms=2,classif_ms=0
+8,parede_us=12883.1,dsp_ms=2,classif_ms=0
+9,parede_us=12960.0,dsp_ms=2,classif_ms=0
+10,parede_us=12895.7,dsp_ms=2,classif_ms=0
+parede: mediana=12925.3 us  min=12869.1  max=14100.9
+throttled=0x0
+temp=45.2'C
+
+### Execucao 2, sob /usr/bin/time -v
+descartada: 12744.6 us
+1,parede_us=13867.0,dsp_ms=2,classif_ms=0
+2,parede_us=13720.2,dsp_ms=2,classif_ms=0
+3,parede_us=13696.5,dsp_ms=2,classif_ms=0
+4,parede_us=13089.8,dsp_ms=2,classif_ms=0
+5,parede_us=13111.9,dsp_ms=2,classif_ms=0
+6,parede_us=13074.1,dsp_ms=2,classif_ms=0
+7,parede_us=13069.3,dsp_ms=2,classif_ms=0
+8,parede_us=13078.7,dsp_ms=2,classif_ms=0
+9,parede_us=13092.0,dsp_ms=2,classif_ms=0
+10,parede_us=12977.4,dsp_ms=2,classif_ms=0
+parede: mediana=13090.9 us  min=12977.4  max=13867.0
+
+        Command being timed: "python3 /home/<usuario>/medir.py"
+        User time (seconds): 0.84
+        System time (seconds): 0.07
+        Percent of CPU this job got: 115%
+        Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.79
+        Maximum resident set size (kbytes): 62340
+        Minor (reclaiming a frame) page faults: 8648
+        Voluntary context switches: 47
+        Involuntary context switches: 65
+        Page size (bytes): 4096
+        Exit status: 0
+# 115% de CPU indica uso de mais de um nucleo.
+# A memoria residente refere-se ao processo Python; o processo do .eim roda
+# em separado e nao esta incluido.
