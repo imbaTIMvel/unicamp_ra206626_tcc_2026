@@ -6,9 +6,9 @@ Leitura de uma fonte analógica e acionamento de um LED por modulação de largu
 
 | Alvo | Latência mediana | Faixa | Linhas de código | Abstração |
 |---|---|---|---|---|
-| BitDogLab (RP2040, 133 MHz) | **2.702 ns** | 16 ns (0,59%) | 16 + 9 de compilação | nível 1 |
-| Raspberry Pi 4 (A72, 1,8 GHz) | **7.357 ns** | 92 ns (1,25%) | 11 (somente leitura) | nível 1 |
-| Arduino UNO Q (Cortex-M33) | **150.010 ns** | 100 ns (0,067%) | 8 | nível 3 |
+| BitDogLab (RP2040, 133 MHz) | **2.702 us** | 16 ns (0,59%) | 16 + 9 de compilação | nível 1 |
+| Raspberry Pi 4 (A72, 1,8 GHz) | **7.357 us** | 92 ns (1,25%) | 11 (somente leitura) | nível 1 |
+| Arduino UNO Q (Cortex-M33) | **150.010 us** | 100 ns (0,067%) | 8 | nível 3 |
 
 Tempo até o primeiro programa funcional: 9 min 25 s na BitDogLab; 36 min 28 s na UNO Q, dos quais 15 min 19 s de atualização obrigatória de firmware.
 
