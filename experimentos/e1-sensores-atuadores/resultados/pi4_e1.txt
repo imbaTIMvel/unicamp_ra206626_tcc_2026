@@ -1,0 +1,84 @@
+# E1 — Raspberry Pi 4, medicao de latencia
+# Governador em performance, 1,8 GHz, throttled=0x0
+
+### SPI a 1 MHz — execucao 1
+=== FUNCIONAL: 10 leituras, mexa no LDR ===
+0 2226
+1 2225
+2 2224
+3 2223
+4 2223
+5 2224
+6 2223
+7 2223
+8 2223
+9 2225
+=== LATENCIA: 10 blocos de 1000 iteracoes ===
+0,por_iter_ns=23366
+1,por_iter_ns=23249
+2,por_iter_ns=23242
+3,por_iter_ns=23225
+4,por_iter_ns=23255
+5,por_iter_ns=23226
+6,por_iter_ns=23258
+7,por_iter_ns=23250
+8,por_iter_ns=23171
+9,por_iter_ns=23233
+mediana=23245 ns  min=23171  max=23366
+=== FIM ===
+throttled=0x0
+
+### SPI a 1 MHz — execucao 2, variando a iluminacao do LDR
+=== FUNCIONAL: 10 leituras, mexa no LDR ===
+0 2266
+1 2259
+2 2055
+3 2183
+4 2205
+5 2061
+6 2256
+7 2093
+8 1567
+9 2215
+=== LATENCIA: 10 blocos de 1000 iteracoes ===
+0,por_iter_ns=23294
+1,por_iter_ns=23202
+2,por_iter_ns=23204
+3,por_iter_ns=23202
+4,por_iter_ns=23225
+5,por_iter_ns=23224
+6,por_iter_ns=23193
+7,por_iter_ns=23191
+8,por_iter_ns=23193
+9,por_iter_ns=23206
+mediana=23203 ns  min=23191  max=23294
+=== FIM ===
+throttled=0x0
+
+### SPI a 10 MHz — valor reportado no trabalho
+spi.max_speed_hz = 10_000_000
+=== FUNCIONAL: 10 leituras, mexa no LDR ===
+0 2264
+1 2264
+2 2264
+3 2261
+4 2244
+5 2242
+6 2253
+7 2250
+8 2248
+9 2246
+=== LATENCIA: 10 blocos de 1000 iteracoes ===
+0,por_iter_ns=7431
+1,por_iter_ns=7358
+2,por_iter_ns=7390
+3,por_iter_ns=7357
+4,por_iter_ns=7397
+5,por_iter_ns=7349
+6,por_iter_ns=7344
+7,por_iter_ns=7373
+8,por_iter_ns=7348
+9,por_iter_ns=7339
+mediana=7357 ns  min=7339  max=7431
+=== FIM ===
+throttled=0x0

@@ -1,0 +1,42 @@
+# E1 — Raspberry Pi 4, teste de vida do conversor AD5592R
+# python3 ~/e1_teste.py
+0 canal=0 valor=2588	# lanterna do celular sobre o LDR
+1 canal=0 valor=2584
+2 canal=0 valor=2583
+3 canal=0 valor=2585
+4 canal=0 valor=2592
+5 canal=0 valor=2593
+6 canal=0 valor=2555
+7 canal=0 valor=2193	# lanterna retirada
+8 canal=0 valor=2235
+9 canal=0 valor=2239
+10 canal=0 valor=2246
+11 canal=0 valor=2253
+12 canal=0 valor=2257
+13 canal=0 valor=2262
+14 canal=0 valor=2250
+15 canal=0 valor=1714	# LDR tapado com a mao
+16 canal=0 valor=1422
+17 canal=0 valor=1283
+18 canal=0 valor=1302
+19 canal=0 valor=1300
+20 canal=0 valor=1300
+21 canal=0 valor=1293
+22 canal=0 valor=1289
+23 canal=0 valor=1287
+24 canal=0 valor=1283
+25 canal=0 valor=1289
+26 canal=0 valor=1281
+27 canal=0 valor=2223	# mao retirada
+28 canal=0 valor=2229
+29 canal=0 valor=2229
+30 canal=0 valor=2228
+31 canal=0 valor=2228
+32 canal=0 valor=2228
+33 canal=0 valor=2231
+34 canal=0 valor=2171
+35 canal=0 valor=2549	# lanterna novamente
+36 canal=0 valor=2582
+37 canal=0 valor=2595
+38 canal=0 valor=2597
+39 canal=0 valor=2603
