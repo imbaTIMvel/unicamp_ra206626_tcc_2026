@@ -16,8 +16,8 @@ Valores estimados pela ferramenta (Edge Impulse), para um núcleo Cortex-M4F @ 8
 | Alvo | Extração de características | Inferência | Tempo total | Memória de execução |
 |---|---|---|---|---|
 | BitDogLab (Cortex-M0+) | **920 ms** | 11 ms | 931 ms | ≈ 23 kB |
-| UNO Q, domínio de aplicação | 3 ms | < 1 ms | 9.570 µs | não medida |
-| Raspberry Pi 4 (Cortex-A72) | 2 ms | < 1 ms | 12.925 µs | ≈ 61 MB |
+| UNO Q, domínio de aplicação | 3 ms | < 1 ms | 9 570 µs | não medida |
+| Raspberry Pi 4 (Cortex-A72) | 2 ms | < 1 ms | 12 925 µs | ≈ 61 MB |
 
 O tempo total do alvo microcontrolado é integralmente interno ao dispositivo; nos alvos Linux inclui comunicação entre processos e serialização da entrada, e por isso não é diretamente comparável.
 
@@ -36,8 +36,8 @@ O tempo total do alvo microcontrolado é integralmente interno ao dispositivo; n
 
 | Versão | Extração | Inferência | Memória de programa |
 |---|---|---|---|
-| Inteiros de 8 bits | 924 ms | **11 ms** | 246.328 bytes |
-| Ponto flutuante de 32 bits | 926 ms | **41 ms** | 241.784 bytes |
+| Inteiros de 8 bits | 924 ms | **11 ms** | 246 328 bytes |
+| Ponto flutuante de 32 bits | 926 ms | **41 ms** | 241 784 bytes |
 
 Fator de 3,7 na inferência; o tempo total variou apenas 3,5%, o que ocultaria o fenômeno caso fosse a grandeza reportada. Ambas as medições com instrumentação de memória ativa.
 
