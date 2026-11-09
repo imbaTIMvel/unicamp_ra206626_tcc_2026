@@ -33,6 +33,9 @@ void medir(const char *rotulo, bool comCarga) {
 }
 
 void setup() {
+  extern uint32_t SystemCoreClock;
+  Serial.print("SystemCoreClock = "); Serial.println(SystemCoreClock);
+  
   Serial.begin(115200);
   delay(5000);
   pinMode(PIN_LED, OUTPUT);
