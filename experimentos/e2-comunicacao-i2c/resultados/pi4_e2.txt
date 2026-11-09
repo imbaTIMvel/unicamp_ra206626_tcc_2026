@@ -1,0 +1,90 @@
+# E2 — Raspberry Pi 4, MPU-6050 em 0x68
+
+### Deteccao no barramento
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:                         -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- 68 -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+$ i2cget -y 1 0x68 0x75
+0x68					# identifica a peca como MPU-6050
+
+### Teste de vida
+WHO_AM_I: 0x68
+0 ax=  7548 ay=   888 az=-13948
+1 ax=  7544 ay=   624 az=-14040
+2 ax=  7632 ay=   756 az=-14096
+3 ax=  7520 ay=   764 az=-14024
+4 ax=  7560 ay=   680 az=-14064
+5 ax=  7492 ay=   544 az=-14080
+6 ax=  7836 ay=   752 az=-14080
+7 ax= -2960 ay=  -704 az= -5680		# modulo em movimento
+8 ax= 14428 ay=  4064 az=-15848
+9 ax= 10360 ay= 10664 az=   968
+10 ax=  3280 ay= 15492 az= -3548
+11 ax=  4464 ay= 14284 az=  -144
+12 ax=   888 ay= 15876 az=  3592
+13 ax= -3212 ay= 13848 az=  -192
+14 ax= -6448 ay= 12008 az= -7240
+15 ax= -9188 ay= 10808 az= -7848
+16 ax= -6832 ay= 12024 az= -7780
+17 ax=  1540 ay= 13188 az= -6968
+18 ax= 10464 ay= 12192 az=  -284
+19 ax= 11196 ay= 10000 az=  9548
+
+### Medicao a 100 kHz (frequencia padrao do adaptador)
+=== FUNCIONAL ===
+0 [-10112, 10164, -11844]
+1 [-7400, 10732, -14616]
+2 [-3988, 11152, -12040]
+3 [-2844, 10776, -7864]
+4 [1032, 8580, -14332]
+=== LATENCIA: 10 blocos de 1000 iteracoes ===
+0,por_iter_ns=887016
+1,por_iter_ns=886372
+2,por_iter_ns=886212
+3,por_iter_ns=886559
+4,por_iter_ns=886916
+5,por_iter_ns=886713
+6,por_iter_ns=886267
+7,por_iter_ns=886640
+8,por_iter_ns=886805
+9,por_iter_ns=886902
+mediana=886677 ns  min=886212  max=887016
+throttled=0x0
+
+### Verificacao da frequencia efetiva do barramento
+$ sudo cat /sys/kernel/debug/clk/clk_summary | grep i2c_div
+  fe804000.i2c_div   1   1   1   100000   0   0   50000   Y   deviceless
+# Confirma 100 kHz: a linha correspondente em /boot/firmware/config.txt
+# permanecia precedida de caractere de comentario.
+# Verificacao pontual na mesma condicao: por_iter_ns 883105
+
+### Medicao a 400 kHz, apos corrigir o config.txt e reiniciar
+$ sudo cat /sys/kernel/debug/clk/clk_summary | grep i2c_div
+  fe804000.i2c_div   1   1   1   400000   0   0   50000   Y   deviceless
+WHO_AM_I: 0x68
+=== FUNCIONAL ===
+0 [13816, 2268, 9208]
+1 [13736, 2236, 9384]
+2 [13848, 2268, 9252]
+3 [13808, 2156, 9408]
+4 [18712, 3544, 5024]
+=== LATENCIA: 10 blocos de 1000 iteracoes ===
+0,por_iter_ns=241801
+1,por_iter_ns=242418
+2,por_iter_ns=242157
+3,por_iter_ns=241826
+4,por_iter_ns=241782
+5,por_iter_ns=242115
+6,por_iter_ns=242152
+7,por_iter_ns=242179
+8,por_iter_ns=242071
+9,por_iter_ns=241482
+mediana=242093 ns  min=241482  max=242418
+throttled=0x0
