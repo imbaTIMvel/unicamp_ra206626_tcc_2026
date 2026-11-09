@@ -1,0 +1,42 @@
+# Registro de compilacao do Arduino App Lab — Arduino UNO Q
+# Citado no trabalho como evidencia da interdependencia entre dominios.
+
+Sketch uses 91156 bytes (11%) of program storage space. Maximum is 786432 bytes.
+Global variables use 38272 bytes (14%) of dynamic memory, leaving 223872 bytes
+for local variables. Maximum is 262144 bytes.
+
+Board platform: arduino:zephyr (1.0.0)
+Used library Wire (1.0.0)
+Used library Arduino_RouterBridge (0.4.4)
+Used library Arduino_RPClite (0.3.1)
+Used library MsgPack (0.4.2)
+Used library DebugLog (0.8.4)
+Used library ArxTypeTraits (0.3.2)
+Used library ArxContainer (0.7.0)
+
+Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)
+/tmp/remoteocd/zephyr-arduino_uno_q_stm32u585xx.elf
+Info : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)
+Info : Note: The adapter "linuxgpiod" doesn't support configurable speed
+Info : SWD DPIDR 0x0be12477
+Info : [stm32u5.cpu] Cortex-M33 r0p4 processor detected
+Info : [stm32u5.cpu] target has 8 breakpoints, 4 watchpoints
+CPU in Non-Secure state
+Info : device idcode = 0x30076482 (STM32U57/U58xx - Rev U : 0x3007)
+Info : TZEN = 0 : TrustZone disabled by option bytes
+Info : RDP level 0 (0xAA)
+Info : flash size = 2048 KiB
+Info : flash mode : dual-bank
+shutdown command invoked
+
+Network e3_tarefas_default  Creating
+Container e3_tarefas-main-1  Created
+Container e3_tarefas-main-1  Started
+
+# Quatro constatacoes:
+# 1. A gravacao do microcontrolador e feita pelo dominio Linux, emulando SWD
+#    por software em pinos de uso geral.
+# 2. O RTOS sob o nucleo Arduino e o Zephyr.
+# 3. Cada aplicacao executa em conteiner, com rede virtual propria.
+# 4. Seis bibliotecas de ponte entre dominios sao incluidas automaticamente,
+#    nenhuma relacionada ao barramento utilizado no experimento.
