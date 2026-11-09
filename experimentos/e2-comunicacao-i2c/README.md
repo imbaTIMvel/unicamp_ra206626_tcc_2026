@@ -8,9 +8,9 @@ Todos a 400 kHz, transação em bloco de seis bytes a partir do registrador 0x3B
 
 | Alvo | Latência mediana | Faixa |
 |---|---|---|
-| Arduino UNO Q (`Wire`) | **210.413 ns** | 397 ns |
-| BitDogLab (Pico SDK) | **241.651 ns** | 25 ns (0,01%) |
-| Raspberry Pi 4 (`smbus2`) | **242.093 ns** | 936 ns |
+| Arduino UNO Q (`Wire`) | **210 413 ns** | 397 ns |
+| BitDogLab (Pico SDK) | **241 651 ns** | 25 ns (0,01%) |
+| Raspberry Pi 4 (`smbus2`) | **242 093 ns** | 936 ns |
 
 Na Raspberry Pi, a 100 kHz — frequência padrão do adaptador — a mediana foi de 886.677 ns.
 
