@@ -1,0 +1,25 @@
+# E3 — Raspberry Pi 4, tarefa periodica de 10 ms, 500 repeticoes
+# Governador em performance, 1,8 GHz
+
+### Execucao INVALIDA — descartada
+=== SEM CARGA ===
+ocioso: mediana=0.4 us  p95=0.5 us  max=1.3 us
+Inicie o stress-ng no outro terminal e pressione Enter...
+stress-ng: info:  [4357] setting to a 1 min run per stressor
+stress-ng: info:  [4357] dispatching hogs: 4 cpu
+stress-ng: info:  [4357] successful run completed in 1 min
+=== SOB CARGA ===
+carregado: mediana=0.4 us  p95=0.6 us  max=0.9 us
+# INVALIDA. Duas falhas de desenho: a carga era iniciada manualmente em terminal
+# separado e terminou antes do inicio da medicao; e quatro processos em quatro
+# nucleos nao produzem disputa efetiva. O erro foi denunciado pela
+# implausibilidade fisica do resultado — contencao nao reduz variabilidade.
+
+### Execucao VALIDA — carga disparada pelo proprio script, 16 processos
+=== SEM CARGA ===
+ocioso: mediana=0.4 us  p95=0.5 us  max=1.3 us
+iniciando carga...
+=== SOB CARGA ===
+carregado: mediana=6106.9 us  p95=15956.7 us  max=19950.3 us
+throttled=0x0
+# O pior desvio, 19.950,3 us, corresponde a dois periodos inteiros perdidos.
